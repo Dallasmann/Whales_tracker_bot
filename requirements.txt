@@ -1,2 +1,2 @@
 python-telegram-bot==13.7
-etherscan==0.3.0
+etherscan-python==0.3.0
