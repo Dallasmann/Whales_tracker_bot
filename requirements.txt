@@ -1,3 +1,2 @@
 python-telegram-bot==13.7
-
-pip install etherscan
+etherscan==2.1.0
