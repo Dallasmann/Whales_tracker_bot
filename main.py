@@ -1,12 +1,15 @@
+import os 
 import telegram
 from telegram.ext import Updater, CommandHandler, ConversationHandler, MessageHandler, Filters, CallbackQueryHandler
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup, ReplyKeyboardRemove
 from etherscan import Etherscan
 from time import sleep
-from api import TELEGRAM_TOKEN, ETHERSCAN_API_KEY
 
-# Create an instance of the Etherscan API
-etherscan = Etherscan(ETHERSCAN_API_KEY)
+# import API from Render environment
+telegram_key = os.getenv("TELEGRAM_TOKEN")
+Etherscan_key= os.getenv("ETHERSCAN_API_KEY")
+
+etherscan = Etherscan(Etherscan_key)
 
 # Conversation states
 CHOOSING_ACTION, RECEIVING_NICKNAME, RECEIVING_ADDRESS, RECEIVING_DELETE_NAME = range(4)
@@ -124,7 +127,7 @@ def cancel(update, context):
 # Main function
 def main():
     # Create an Updater instance with your bot token
-    updater = Updater(token=TELEGRAM_TOKEN, use_context=True)
+    updater = Updater(token=telegram_key, use_context=True)
 
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
