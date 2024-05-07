@@ -1,9 +1,17 @@
+import os
+from dotenv import load_dotenv
 import telegram
 from telegram.ext import Updater, CommandHandler, ConversationHandler, MessageHandler, Filters, CallbackQueryHandler
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup, ReplyKeyboardRemove
 from etherscan import Etherscan
 from time import sleep
-from api import TELEGRAM_TOKEN, ETHERSCAN_API_KEY
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Retrieve environment variables
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
+ETHERSCAN_API_KEY = os.getenv("ETHERSCAN_API_KEY")
 
 # Create an instance of the Etherscan API
 etherscan = Etherscan(ETHERSCAN_API_KEY)
