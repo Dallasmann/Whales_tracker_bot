@@ -7,9 +7,9 @@ from time import sleep
 
 # import API from Render environment
 telegram_key = os.getenv("TELEGRAM_TOKEN")
-Etherscan_key= os.getenv("ETHERSCAN_API_KEY")
+etherscan_key= os.getenv("ETHERSCAN_API_KEY")
 
-etherscan = Etherscan(Etherscan_key)
+etherscan = Etherscan(etherscan_key)
 
 # Conversation states
 CHOOSING_ACTION, RECEIVING_NICKNAME, RECEIVING_ADDRESS, RECEIVING_DELETE_NAME = range(4)
