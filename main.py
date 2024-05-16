@@ -1,9 +1,13 @@
 import os 
+from dotenv import load_dotenv
 import telegram
 from telegram.ext import Updater, CommandHandler, ConversationHandler, MessageHandler, Filters, CallbackQueryHandler
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup, ReplyKeyboardRemove
 from etherscan import Etherscan
 from time import sleep
+
+# Load environment variables from .env file
+load_dotenv()
 
 # import API from Render environment
 telegram_key = os.getenv("TELEGRAM_TOKEN")
